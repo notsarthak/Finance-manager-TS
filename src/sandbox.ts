@@ -178,30 +178,47 @@
 // console.log(c);
 
 //8
-let greet:Function;
-// greet = "hello";
-greet = () => {
-    console.log("hello, again");
+// let greet:Function;
+// // greet = "hello";
+// greet = () => {
+//     console.log("hello, again");
+// }
+
+// const add = (a:number, b:number, c?:number|string): void => {
+//     console.log(c)
+//     console.log(a+b);
+// }
+
+// add(5,10);
+// add(5,10, "yolo");
+// add(5,10, 4);
+
+// const minus = (a:number, b:number):number => {
+//     return a+b;
+// }
+// let result = minus(20,7);
+
+// const multiply = (a:number, b:number, c:number|string = 10):number => {
+//     console.log(c)
+//     return a*b;
+// }
+
+// console.log(multiply(5,5));
+// console.log(multiply(5,5,20));
+
+//9
+//TYPE ALIASES
+type StringOrNum = string | number;
+type ObjectWithName = { name: string, uid: StringOrNum };
+
+const logDetails: Function = (uid: StringOrNum, item: string): void => {
+    console.log(`${item} has a uid of ${uid}`);
 }
 
-const add = (a:number, b:number, c?:number|string): void => {
-    console.log(c)
-    console.log(a+b);
+const greet:Function = (user: ObjectWithName):void => {
+    console.log(`${user.name} says hello`)
 }
 
-add(5,10);
-add(5,10, "yolo");
-add(5,10, 4);
-
-const minus = (a:number, b:number):number => {
-    return a+b;
+const greetAgain:Function = (user: ObjectWithName):void => {
+    console.log(`${user.uid} says hello`)
 }
-let result = minus(20,7);
-
-const multiply = (a:number, b:number, c:number|string = 10):number => {
-    console.log(c)
-    return a*b;
-}
-
-console.log(multiply(5,5));
-console.log(multiply(5,5,20));
