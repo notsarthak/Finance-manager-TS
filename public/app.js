@@ -1,4 +1,28 @@
 "use strict";
+var Invoice = /** @class */ (function () {
+    function Invoice(c, d, a) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
+    Invoice.prototype.format = function () {
+        return this.client + " owes \u20B9" + this.amount + " for " + this.details;
+    };
+    return Invoice;
+}());
+;
+var invOne = new Invoice("mario", "working on mario website", 30000);
+var invTwo = new Invoice("luigi", "working on luigi website", 40000);
+console.log(invOne, invTwo);
+var invoices = [];
+// invoices.push("hello");
+invoices.push(invOne);
+invoices.push(invTwo);
+invOne.client = "Yoshi";
+// invTwo.amount = "50000";
+invTwo.amount = 50000;
+console.log(invOne, invTwo);
+console.log(invoices);
 // let button = document.querySelector("button");
 // console.log(button.innerText);
 var anchor = document.querySelector('a');
