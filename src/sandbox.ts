@@ -208,17 +208,40 @@
 
 //9
 //TYPE ALIASES
-type StringOrNum = string | number;
-type ObjectWithName = { name: string, uid: StringOrNum };
+// type StringOrNum = string | number;
+// type ObjectWithName = { name: string, uid: StringOrNum };
 
-const logDetails: Function = (uid: StringOrNum, item: string): void => {
-    console.log(`${item} has a uid of ${uid}`);
+// const logDetails: Function = (uid: StringOrNum, item: string): void => {
+//     console.log(`${item} has a uid of ${uid}`);
+// }
+
+// const greet:Function = (user: ObjectWithName):void => {
+//     console.log(`${user.name} says hello`)
+// }
+
+// const greetAgain:Function = (user: ObjectWithName):void => {
+//     console.log(`${user.uid} says hello`)
+// }
+
+//10
+//function signature
+
+// let greetSomeone:Function;
+let greet: (a: string, b: string) => void;
+greet = (name: string, greeting: string) => {
+    console.log(`${name} says ${greeting}.`);
 }
 
-const greet:Function = (user: ObjectWithName):void => {
-    console.log(`${user.name} says hello`)
+let calc: (a: number, b: number, c: string) => number;
+calc = (numOne: number, numTwo: number, action: string) => {
+    if (action === "add")
+        return numOne + numTwo;
+    else
+        return numOne - numTwo;
 }
 
-const greetAgain:Function = (user: ObjectWithName):void => {
-    console.log(`${user.uid} says hello`)
+let logDetails: (obj: { name: string, age: number }) => void;
+type person = { name: string, age: number };
+logDetails = (ninja: person) => {
+    console.log(`${ninja.name} is ${ninja.age} years old.`)
 }
