@@ -129,24 +129,51 @@
 // }
 // c = new Ninja("Joe", 24, "white");
 //6
-//datatype any
-var a;
-a = 25;
-a = true;
-a = "ken";
-a = { name: "luigi" };
-var b = [];
-b.push(4);
-b.push("hello");
-b.push(false);
-var c;
-c = {
-    name: "yoshi",
-    age: 21
+// //datatype any
+// let a: any;
+// a = 25;
+// a = true;
+// a = "ken";
+// a = { name: "luigi" };
+// let b: any[] = [];
+// b.push(4);
+// b.push("hello");
+// b.push(false);
+// let c: {
+//     name: any,
+//     age: any
+// };
+// c = {
+//     name: "yoshi",
+//     age: 21
+// };
+// console.log(c);
+// c = {
+//     name: 21,
+//     age: "mario"
+// }
+// console.log(c);
+//8
+var greet;
+// greet = "hello";
+greet = function () {
+    console.log("hello, again");
 };
-console.log(c);
-c = {
-    name: 21,
-    age: "mario"
+var add = function (a, b, c) {
+    console.log(c);
+    console.log(a + b);
 };
-console.log(c);
+add(5, 10);
+add(5, 10, "yolo");
+add(5, 10, 4);
+var minus = function (a, b) {
+    return a + b;
+};
+var result = minus(20, 7);
+var multiply = function (a, b, c) {
+    if (c === void 0) { c = 10; }
+    console.log(c);
+    return a * b;
+};
+console.log(multiply(5, 5));
+console.log(multiply(5, 5, 20));

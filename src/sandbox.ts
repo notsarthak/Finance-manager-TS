@@ -150,29 +150,58 @@
 // c = new Ninja("Joe", 24, "white");
 
 //6
-//datatype any
-let a: any;
-a = 25;
-a = true;
-a = "ken";
-a = { name: "luigi" };
+// //datatype any
+// let a: any;
+// a = 25;
+// a = true;
+// a = "ken";
+// a = { name: "luigi" };
 
-let b: any[] = [];
-b.push(4);
-b.push("hello");
-b.push(false);
+// let b: any[] = [];
+// b.push(4);
+// b.push("hello");
+// b.push(false);
 
-let c: {
-    name: any,
-    age: any
-};
-c = {
-    name: "yoshi",
-    age: 21
-};
-console.log(c);
-c = {
-    name: 21,
-    age: "mario"
+// let c: {
+//     name: any,
+//     age: any
+// };
+// c = {
+//     name: "yoshi",
+//     age: 21
+// };
+// console.log(c);
+// c = {
+//     name: 21,
+//     age: "mario"
+// }
+// console.log(c);
+
+//8
+let greet:Function;
+// greet = "hello";
+greet = () => {
+    console.log("hello, again");
 }
-console.log(c);
+
+const add = (a:number, b:number, c?:number|string): void => {
+    console.log(c)
+    console.log(a+b);
+}
+
+add(5,10);
+add(5,10, "yolo");
+add(5,10, 4);
+
+const minus = (a:number, b:number):number => {
+    return a+b;
+}
+let result = minus(20,7);
+
+const multiply = (a:number, b:number, c:number|string = 10):number => {
+    console.log(c)
+    return a*b;
+}
+
+console.log(multiply(5,5));
+console.log(multiply(5,5,20));
