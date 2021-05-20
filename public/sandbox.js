@@ -1,3 +1,4 @@
+"use strict";
 //3
 // let character = "mario";
 // let age = 10;
