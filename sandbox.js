@@ -1,5 +1,12 @@
-var mario = 'mario';
-console.log(mario);
-var inputs = document.querySelectorAll("input");
-console.log(inputs);
-inputs.forEach(function (input) { return console.log(input); });
+var character = "mario";
+var age = 10;
+var isblackBelt = false;
+// character = true;
+character = "luigi";
+// age = "twenty"
+age = 20;
+// isblackBelt = "yes";
+isblackBelt = true;
+var circumference = function (diameter) { return diameter * Math.PI; };
+// console.log(circumference("hello"));
+console.log(circumference(7.5));

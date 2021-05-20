@@ -1,9 +1,16 @@
-const mario = 'mario';
+let character = "mario";
+let age = 10;
+let isblackBelt = false;
 
-console.log(mario);
+// character = true;
+character = "luigi";
 
-const inputs = document.querySelectorAll("input");
+// age = "twenty"
+age = 20;
 
-console.log(inputs);
+// isblackBelt = "yes";
+isblackBelt = true;
 
-inputs.forEach(input => console.log(input));
+const circumference = (diameter: number) => diameter * Math.PI;
+// console.log(circumference("hello"));
+console.log(circumference(7.5));
