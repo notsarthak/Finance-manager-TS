@@ -57,19 +57,95 @@
 // //     skills: ["fighting"]
 // // }
 //5
-//explicit type defining
-var character;
-var age;
-var isMale;
-// character=20;
-character = "mario";
-// isMale = 1;
-isMale = true;
-//ARRAY
-var skills;
-// skills = [20,30];
-// skills.push("fighting");
-skills = ["fighting", "running"];
-var friends = [];
-friends.push("Ken");
-//Union types
+// //explicit type defining
+// let character:string;
+// let age:number;
+// let isMale:boolean;
+// // character=20;
+// character="mario";
+// // isMale = 1;
+// isMale = true;
+// //ARRAY
+// let skills:string[];
+// // skills = [20,30];
+// // skills.push("fighting");
+// skills = ["fighting", "running"]
+// let friends:string[] = [];
+// friends.push("Ken");
+// //Union types
+// let mixed: (string|number)[] = [];
+// mixed.push(2);
+// mixed.push('2');
+// // mixed.push(true);
+// let uid:string|number;
+// uid='pf34';
+// uid=56
+// //OBJECT
+// let a:object;
+// a = {
+//     name:"Yoshi",
+//     age: 34,
+//     belt: "black"
+// };
+// a = [];
+// // a = ""
+// let b: {
+//     name: string,
+//     age: number,
+//     belt: string
+// };
+// // b = []
+// b = {
+//     name:"mario",
+//     age:23,
+//     belt: "orange"
+// };
+// // b = {
+// //     name: "luigi"
+// // }
+// // b = {
+// //     name: "ken",
+// //     age: 25,
+// //     belt: "yellow",
+// //     skills: ["running"]
+// // }
+// class Ninja {
+//     name:string;
+//     age:number;
+//     belt:string;
+//     constructor(name: string, age:number, belt:string) {
+//         this.name = name;
+//         this.age = age;
+//         this.belt = belt;
+//     }
+// };
+// let c:Ninja;
+// // c = "hello"
+// c = {
+//     name:"John",
+//     age: 20,
+//     belt: "grey"
+// }
+// c = new Ninja("Joe", 24, "white");
+//6
+//datatype any
+var a;
+a = 25;
+a = true;
+a = "ken";
+a = { name: "luigi" };
+var b = [];
+b.push(4);
+b.push("hello");
+b.push(false);
+var c;
+c = {
+    name: "yoshi",
+    age: 21
+};
+console.log(c);
+c = {
+    name: 21,
+    age: "mario"
+};
+console.log(c);

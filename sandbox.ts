@@ -66,85 +66,113 @@
 // // }
 
 //5
-//explicit type defining
-let character:string;
-let age:number;
-let isMale:boolean;
+// //explicit type defining
+// let character:string;
+// let age:number;
+// let isMale:boolean;
 
-// character=20;
-character="mario";
+// // character=20;
+// character="mario";
 
-// isMale = 1;
-isMale = true;
+// // isMale = 1;
+// isMale = true;
 
-//ARRAY
-let skills:string[];
-// skills = [20,30];
-// skills.push("fighting");
-skills = ["fighting", "running"]
+// //ARRAY
+// let skills:string[];
+// // skills = [20,30];
+// // skills.push("fighting");
+// skills = ["fighting", "running"]
 
-let friends:string[] = [];
-friends.push("Ken");
+// let friends:string[] = [];
+// friends.push("Ken");
 
-//Union types
-let mixed: (string|number)[] = [];
-mixed.push(2);
-mixed.push('2');
-// mixed.push(true);
+// //Union types
+// let mixed: (string|number)[] = [];
+// mixed.push(2);
+// mixed.push('2');
+// // mixed.push(true);
 
-let uid:string|number;
-uid='pf34';
-uid=56
+// let uid:string|number;
+// uid='pf34';
+// uid=56
 
-//OBJECT
-let a:object;
-a = {
-    name:"Yoshi",
-    age: 34,
-    belt: "black"
-};
-a = [];
-// a = ""
+// //OBJECT
+// let a:object;
+// a = {
+//     name:"Yoshi",
+//     age: 34,
+//     belt: "black"
+// };
+// a = [];
+// // a = ""
 
-let b: {
-    name: string,
-    age: number,
-    belt: string
-};
-// b = []
-b = {
-    name:"mario",
-    age:23,
-    belt: "orange"
-};
+// let b: {
+//     name: string,
+//     age: number,
+//     belt: string
+// };
+// // b = []
 // b = {
-//     name: "luigi"
-// }
-// b = {
-//     name: "ken",
-//     age: 25,
-//     belt: "yellow",
-//     skills: ["running"]
+//     name:"mario",
+//     age:23,
+//     belt: "orange"
+// };
+// // b = {
+// //     name: "luigi"
+// // }
+// // b = {
+// //     name: "ken",
+// //     age: 25,
+// //     belt: "yellow",
+// //     skills: ["running"]
+// // }
+
+// class Ninja {
+//     name:string;
+//     age:number;
+//     belt:string;
+
+//     constructor(name: string, age:number, belt:string) {
+//         this.name = name;
+//         this.age = age;
+//         this.belt = belt;
+//     }
+// };
+
+// let c:Ninja;
+// // c = "hello"
+// c = {
+//     name:"John",
+//     age: 20,
+//     belt: "grey"
 // }
 
-class Ninja {
-    name:string;
-    age:number;
-    belt:string;
+// c = new Ninja("Joe", 24, "white");
 
-    constructor(name: string, age:number, belt:string) {
-        this.name = name;
-        this.age = age;
-        this.belt = belt;
-    }
+//6
+//datatype any
+let a: any;
+a = 25;
+a = true;
+a = "ken";
+a = { name: "luigi" };
+
+let b: any[] = [];
+b.push(4);
+b.push("hello");
+b.push(false);
+
+let c: {
+    name: any,
+    age: any
 };
-
-let c:Ninja;
-// c = "hello"
 c = {
-    name:"John",
-    age: 20,
-    belt: "grey"
+    name: "yoshi",
+    age: 21
+};
+console.log(c);
+c = {
+    name: 21,
+    age: "mario"
 }
-
-c = new Ninja("Joe", 24, "white");
+console.log(c);
