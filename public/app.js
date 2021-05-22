@@ -1,9 +1,17 @@
 "use strict";
 var Invoice = /** @class */ (function () {
-    function Invoice(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
+    // client:string;
+    // details:string;
+    // amount:number;
+    // constructor(c:string, d:string, a:number) {
+    //     this.client = c;
+    //     this.details = d;
+    //     this.amount = a;
+    // } 
+    function Invoice(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
     }
     Invoice.prototype.format = function () {
         return this.client + " owes \u20B9" + this.amount + " for " + this.details;
@@ -13,15 +21,15 @@ var Invoice = /** @class */ (function () {
 ;
 var invOne = new Invoice("mario", "working on mario website", 30000);
 var invTwo = new Invoice("luigi", "working on luigi website", 40000);
-console.log(invOne, invTwo);
+console.log(invOne.format(), invTwo);
 var invoices = [];
 // invoices.push("hello");
 invoices.push(invOne);
 invoices.push(invTwo);
-invOne.client = "Yoshi";
+// invOne.client = "Yoshi";
 // invTwo.amount = "50000";
 invTwo.amount = 50000;
-console.log(invOne, invTwo);
+// console.log(invOne, invTwo);
 console.log(invoices);
 // let button = document.querySelector("button");
 // console.log(button.innerText);
