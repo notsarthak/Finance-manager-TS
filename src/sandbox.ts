@@ -249,19 +249,32 @@
 
 //15
 //interfaces
-interface isPerson {
-    name: string,
-    student: boolean,
-    speak(a: string): void,
-    spend(a: number): number
-}
-
-// let you:isPerson = {
-//     name: "Sarthak",
-//     student: true    
+// interface isPerson {
+//     name: string,
+//     student: boolean,
+//     speak(a: string): void,
+//     spend(a: number): number
 // }
 
-// let they:isPerson = {
+// // let you:isPerson = {
+// //     name: "Sarthak",
+// //     student: true    
+// // }
+
+// // let they:isPerson = {
+// //     name: "Sarthak",
+// //     student: true,
+// //     speak: (text: string):void => {
+// //         console.log(text);
+// //     },
+// //     spend: (amount:number):number => {
+// //         console.log(`Amount spent Rs.${amount}`);
+// //         return amount;
+// //     },
+// //     skills: []
+// // }
+
+// let me:isPerson = {
 //     name: "Sarthak",
 //     student: true,
 //     speak: (text: string):void => {
@@ -270,18 +283,64 @@ interface isPerson {
 //     spend: (amount:number):number => {
 //         console.log(`Amount spent Rs.${amount}`);
 //         return amount;
-//     },
-//     skills: []
+//     }
 // }
 
-let me:isPerson = {
-    name: "Sarthak",
-    student: true,
-    speak: (text: string):void => {
-        console.log(text);
-    },
-    spend: (amount:number):number => {
-        console.log(`Amount spent Rs.${amount}`);
-        return amount;
-    }
+
+//18
+//Generics
+// const addUID = (obj: object) => {
+//     let uid: number = Math.floor(Math.random() * 100);
+//     return {...obj, uid};
+// }
+// const withUID = addUID({name: "Sarthak", isMajor: true});
+// console.log(withUID.name);
+
+// const addUID = <T>(obj: T) => {
+//     let uid: number = Math.floor(Math.random() * 100);
+//     return {...obj, uid};
+// }
+// const withUID = addUID({name: "Sarthak", isMajor: true});
+// //const anotherWithUID = addUID("sarthak");
+// console.log(withUID.name);
+
+const addUID = <T extends object>(obj: T) => {
+    let uid: number = Math.floor(Math.random() * 100);
+    return {...obj, uid};
+}
+const withUID = addUID<{name: string, isMajor: boolean}>({name: "Sarthak", isMajor: true});
+const withUID2 = addUID({name: "Sarthak", isMajor: true});
+console.log(withUID.name);
+console.log(withUID2.name);
+
+const addUID2 = <T extends {name: string}>(obj: T) => {
+    let uid: number = Math.floor(Math.random() * 100);
+    return {...obj, uid};
+}
+const withUID3 = addUID2({name: "Sarthak", isMajor: true});
+// const withUID4 = addUID2({age:20});
+// const withUID5 = addUID2({name:20});
+
+interface Resource<T> {
+    uid: number;
+    data: T;
+    resourceName: string
+}
+
+let r1: Resource<string> = {
+    uid: 1,
+    data: "sarthak",
+    resourceName: "person"
+}
+
+// let r2: Resource<string> = {
+//     uid: 1,
+//     data: {name: "Sarthak"},
+//     resourceName: "person"
+// }
+
+let r2: Resource<object> = {
+    uid: 1,
+    data: {name: "Sarthak"},
+    resourceName: "person"
 }
