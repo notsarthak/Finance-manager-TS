@@ -1,14 +1,8 @@
 import { Invoice } from "./classes/Invoice.js";
 import { Payment } from "./classes/Payment.js";
-// let trOne: HasFormatter;
-// let trTwo: HasFormatter;
-// trOne = new Invoice("yoshi", "mario website work", 50000);
-// trTwo = new Payment("ken", "2 dozen bananas", 150);
-// console.log(trOne, trTwo);
-// let transactions: HasFormatter[] = [];
-// transactions.push(trOne);
-// transactions.push(trTwo);
-// transactions.forEach((tr: HasFormatter) => console.log(tr.format()));
+import { ListTemplate } from "./classes/ListTemplate.js";
+//list template instance
+const unorderedList = new ListTemplate(document.querySelector('.item-list'));
 const form = document.querySelector('.new-item-form');
 const type = document.querySelector('#type');
 const toFrom = document.querySelector('#tofrom');
@@ -21,5 +15,5 @@ form.addEventListener('submit', (e) => {
         doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
     else
         doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
-    console.log(doc);
+    unorderedList.render(doc, type.value.toUpperCase(), "end");
 });
