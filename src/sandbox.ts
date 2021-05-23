@@ -227,21 +227,61 @@
 //function signature
 
 // let greetSomeone:Function;
-let greet: (a: string, b: string) => void;
-greet = (name: string, greeting: string) => {
-    console.log(`${name} says ${greeting}.`);
+// let greet: (a: string, b: string) => void;
+// greet = (name: string, greeting: string) => {
+//     console.log(`${name} says ${greeting}.`);
+// }
+
+// let calc: (a: number, b: number, c: string) => number;
+// calc = (numOne: number, numTwo: number, action: string) => {
+//     if (action === "add")
+//         return numOne + numTwo;
+//     else
+//         return numOne - numTwo;
+// }
+
+// let logDetails: (obj: { name: string, age: number }) => void;
+// type person = { name: string, age: number };
+// logDetails = (ninja: person) => {
+//     console.log(`${ninja.name} is ${ninja.age} years old.`)
+// }
+
+
+//15
+//interfaces
+interface isPerson {
+    name: string,
+    student: boolean,
+    speak(a: string): void,
+    spend(a: number): number
 }
 
-let calc: (a: number, b: number, c: string) => number;
-calc = (numOne: number, numTwo: number, action: string) => {
-    if (action === "add")
-        return numOne + numTwo;
-    else
-        return numOne - numTwo;
-}
+// let you:isPerson = {
+//     name: "Sarthak",
+//     student: true    
+// }
 
-let logDetails: (obj: { name: string, age: number }) => void;
-type person = { name: string, age: number };
-logDetails = (ninja: person) => {
-    console.log(`${ninja.name} is ${ninja.age} years old.`)
+// let they:isPerson = {
+//     name: "Sarthak",
+//     student: true,
+//     speak: (text: string):void => {
+//         console.log(text);
+//     },
+//     spend: (amount:number):number => {
+//         console.log(`Amount spent Rs.${amount}`);
+//         return amount;
+//     },
+//     skills: []
+// }
+
+let me:isPerson = {
+    name: "Sarthak",
+    student: true,
+    speak: (text: string):void => {
+        console.log(text);
+    },
+    spend: (amount:number):number => {
+        console.log(`Amount spent Rs.${amount}`);
+        return amount;
+    }
 }
