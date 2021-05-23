@@ -1,14 +1,14 @@
 import { Invoice } from "./classes/Invoice.js";
-let invOne = new Invoice("mario", "working on mario website", 30000);
-let invTwo = new Invoice("luigi", "working on luigi website", 40000);
-console.log(invOne.format(), invTwo);
-let invoices = [];
-invoices.push(invOne);
-invoices.push(invTwo);
-invTwo.amount = 50000;
-console.log(invoices);
-const anchor = document.querySelector('a');
-console.log(anchor.href);
+import { Payment } from "./classes/Payment.js";
+// let trOne: HasFormatter;
+// let trTwo: HasFormatter;
+// trOne = new Invoice("yoshi", "mario website work", 50000);
+// trTwo = new Payment("ken", "2 dozen bananas", 150);
+// console.log(trOne, trTwo);
+// let transactions: HasFormatter[] = [];
+// transactions.push(trOne);
+// transactions.push(trTwo);
+// transactions.forEach((tr: HasFormatter) => console.log(tr.format()));
 const form = document.querySelector('.new-item-form');
 const type = document.querySelector('#type');
 const toFrom = document.querySelector('#tofrom');
@@ -16,5 +16,10 @@ const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(type.value, toFrom.value, details.value, amount.valueAsNumber);
+    let doc;
+    if (type.value === 'invoice')
+        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+    else
+        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+    console.log(doc);
 });
