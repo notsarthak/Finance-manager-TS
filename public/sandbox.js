@@ -192,18 +192,18 @@
 //10
 //function signature
 // let greetSomeone:Function;
-var greet;
-greet = function (name, greeting) {
-    console.log(name + " says " + greeting + ".");
+let greet;
+greet = (name, greeting) => {
+    console.log(`${name} says ${greeting}.`);
 };
-var calc;
-calc = function (numOne, numTwo, action) {
+let calc;
+calc = (numOne, numTwo, action) => {
     if (action === "add")
         return numOne + numTwo;
     else
         return numOne - numTwo;
 };
-var logDetails;
-logDetails = function (ninja) {
-    console.log(ninja.name + " is " + ninja.age + " years old.");
+let logDetails;
+logDetails = (ninja) => {
+    console.log(`${ninja.name} is ${ninja.age} years old.`);
 };
