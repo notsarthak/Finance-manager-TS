@@ -348,28 +348,48 @@
 
 //19
 //enums
-enum SampleEnum {BOOKS = 0, BOTTLE, PERSON="living"};
-console.log(SampleEnum.BOOKS)
+// enum SampleEnum {BOOKS = 0, BOTTLE, PERSON="living"};
+// console.log(SampleEnum.BOOKS)
 
-interface Resource<T> {
-    uid: number;
-    data: T;
-    resourceType: number
-}
-
-// let r2: Resource<object> = {
-//     uid: 1,
-//     data: {name: "Sarthak"},
-//     resourceType: 2
+// interface Resource<T> {
+//     uid: number;
+//     data: T;
+//     resourceType: number
 // }
+
+// // let r2: Resource<object> = {
+// //     uid: 1,
+// //     data: {name: "Sarthak"},
+// //     resourceType: 2
+// // }
+// // let r1: Resource<string> = {
+// //     uid: 2,
+// //     data: "Harry Potter",
+// //     resourceType: 0
+// // }
+// enum ResourceTypes {BOOKS, BAG, PERSON}
 // let r1: Resource<string> = {
 //     uid: 2,
 //     data: "Harry Potter",
-//     resourceType: 0
+//     resourceType: ResourceTypes.BOOKS
 // }
-enum ResourceTypes {BOOKS, BAG, PERSON}
-let r1: Resource<string> = {
-    uid: 2,
-    data: "Harry Potter",
-    resourceType: ResourceTypes.BOOKS
-}
+
+
+//20
+//TUPLES
+let tuplePerson: [string, number, boolean] = ["joey", 11, true];
+// person[0] = false;
+
+let arrayPerson: (string|number|boolean)[] = ["joey", 11, true]; 
+
+const personLogger = (pName: string, pAge: number, pIsMale: boolean):void => {
+    console.log(`${pName} is a ${pAge} years old ${pIsMale ? 'male' : "female"}.`)
+};
+personLogger(...tuplePerson);
+// personLogger(...arrayPerson);
+arrayPerson[0] = false;
+arrayPerson = [true, "Chandler",31];
+// tuplePerson = [true, "Chandler", 31];
+tuplePerson[0] = "Chandler";
+tuplePerson[1] = 31;
+

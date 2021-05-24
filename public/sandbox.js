@@ -245,52 +245,91 @@
 // }
 //18
 //Generics
-// const addUID = (obj: object) => {
+// // const addUID = (obj: object) => {
+// //     let uid: number = Math.floor(Math.random() * 100);
+// //     return {...obj, uid};
+// // }
+// // const withUID = addUID({name: "Sarthak", isMajor: true});
+// // console.log(withUID.name);
+// // const addUID = <T>(obj: T) => {
+// //     let uid: number = Math.floor(Math.random() * 100);
+// //     return {...obj, uid};
+// // }
+// // const withUID = addUID({name: "Sarthak", isMajor: true});
+// // //const anotherWithUID = addUID("sarthak");
+// // console.log(withUID.name);
+// const addUID = <T extends object>(obj: T) => {
 //     let uid: number = Math.floor(Math.random() * 100);
 //     return {...obj, uid};
 // }
-// const withUID = addUID({name: "Sarthak", isMajor: true});
+// const withUID = addUID<{name: string, isMajor: boolean}>({name: "Sarthak", isMajor: true});
+// const withUID2 = addUID({name: "Sarthak", isMajor: true});
 // console.log(withUID.name);
-// const addUID = <T>(obj: T) => {
+// console.log(withUID2.name);
+// const addUID2 = <T extends {name: string}>(obj: T) => {
 //     let uid: number = Math.floor(Math.random() * 100);
 //     return {...obj, uid};
 // }
-// const withUID = addUID({name: "Sarthak", isMajor: true});
-// //const anotherWithUID = addUID("sarthak");
-// console.log(withUID.name);
-const addUID = (obj) => {
-    let uid = Math.floor(Math.random() * 100);
-    return Object.assign(Object.assign({}, obj), { uid });
-};
-const withUID = addUID({ name: "Sarthak", isMajor: true });
-const withUID2 = addUID({ name: "Sarthak", isMajor: true });
-console.log(withUID.name);
-console.log(withUID2.name);
-const addUID2 = (obj) => {
-    let uid = Math.floor(Math.random() * 100);
-    return Object.assign(Object.assign({}, obj), { uid });
-};
-const withUID3 = addUID2({ name: "Sarthak", isMajor: true });
-let r1 = {
-    uid: 1,
-    data: "sarthak",
-    resourceName: "person"
-};
-// let r2: Resource<string> = {
+// const withUID3 = addUID2({name: "Sarthak", isMajor: true});
+// // const withUID4 = addUID2({age:20});
+// // const withUID5 = addUID2({name:20});
+// interface Resource<T> {
+//     uid: number;
+//     data: T;
+//     resourceName: string
+// }
+// let r1: Resource<string> = {
+//     uid: 1,
+//     data: "sarthak",
+//     resourceName: "person"
+// }
+// // let r2: Resource<string> = {
+// //     uid: 1,
+// //     data: {name: "Sarthak"},
+// //     resourceName: "person"
+// // }
+// let r2: Resource<object> = {
 //     uid: 1,
 //     data: {name: "Sarthak"},
 //     resourceName: "person"
 // }
-let r2 = {
-    uid: 1,
-    data: { name: "Sarthak" },
-    resourceName: "person"
+//19
+//enums
+// enum SampleEnum {BOOKS = 0, BOTTLE, PERSON="living"};
+// console.log(SampleEnum.BOOKS)
+// interface Resource<T> {
+//     uid: number;
+//     data: T;
+//     resourceType: number
+// }
+// // let r2: Resource<object> = {
+// //     uid: 1,
+// //     data: {name: "Sarthak"},
+// //     resourceType: 2
+// // }
+// // let r1: Resource<string> = {
+// //     uid: 2,
+// //     data: "Harry Potter",
+// //     resourceType: 0
+// // }
+// enum ResourceTypes {BOOKS, BAG, PERSON}
+// let r1: Resource<string> = {
+//     uid: 2,
+//     data: "Harry Potter",
+//     resourceType: ResourceTypes.BOOKS
+// }
+//20
+//TUPLES
+let tuplePerson = ["joey", 11, true];
+// person[0] = false;
+let arrayPerson = ["joey", 11, true];
+const personLogger = (pName, pAge, pIsMale) => {
+    console.log(`${pName} is a ${pAge} years old ${pIsMale ? 'male' : "female"}.`);
 };
-var ResourceTypes;
-(function (ResourceTypes) {
-    ResourceTypes[ResourceTypes["BOOKS"] = 0] = "BOOKS";
-    ResourceTypes[ResourceTypes["BOTTLE"] = 1] = "BOTTLE";
-    ResourceTypes["PERSON"] = "living";
-})(ResourceTypes || (ResourceTypes = {}));
-;
-console.log(ResourceTypes.BOOKS);
+personLogger(...tuplePerson);
+// personLogger(...arrayPerson);
+arrayPerson[0] = false;
+arrayPerson = [true, "Chandler", 31];
+// tuplePerson = [true, "Chandler", 31];
+tuplePerson[0] = "Chandler";
+tuplePerson[1] = 31;

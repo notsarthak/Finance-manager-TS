@@ -11,9 +11,11 @@ const amount = document.querySelector('#amount');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let doc;
+    let values;
+    values = [toFrom.value, details.value, amount.valueAsNumber];
     if (type.value === 'invoice')
-        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     else
-        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     unorderedList.render(doc, type.value.toUpperCase(), "end");
 });
