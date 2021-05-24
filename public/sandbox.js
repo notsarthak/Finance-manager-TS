@@ -286,3 +286,11 @@ let r2 = {
     data: { name: "Sarthak" },
     resourceName: "person"
 };
+var ResourceTypes;
+(function (ResourceTypes) {
+    ResourceTypes[ResourceTypes["BOOKS"] = 0] = "BOOKS";
+    ResourceTypes[ResourceTypes["BOTTLE"] = 1] = "BOTTLE";
+    ResourceTypes["PERSON"] = "living";
+})(ResourceTypes || (ResourceTypes = {}));
+;
+console.log(ResourceTypes.BOOKS);

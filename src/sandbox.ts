@@ -289,58 +289,87 @@
 
 //18
 //Generics
-// const addUID = (obj: object) => {
+// // const addUID = (obj: object) => {
+// //     let uid: number = Math.floor(Math.random() * 100);
+// //     return {...obj, uid};
+// // }
+// // const withUID = addUID({name: "Sarthak", isMajor: true});
+// // console.log(withUID.name);
+
+// // const addUID = <T>(obj: T) => {
+// //     let uid: number = Math.floor(Math.random() * 100);
+// //     return {...obj, uid};
+// // }
+// // const withUID = addUID({name: "Sarthak", isMajor: true});
+// // //const anotherWithUID = addUID("sarthak");
+// // console.log(withUID.name);
+
+// const addUID = <T extends object>(obj: T) => {
 //     let uid: number = Math.floor(Math.random() * 100);
 //     return {...obj, uid};
 // }
-// const withUID = addUID({name: "Sarthak", isMajor: true});
+// const withUID = addUID<{name: string, isMajor: boolean}>({name: "Sarthak", isMajor: true});
+// const withUID2 = addUID({name: "Sarthak", isMajor: true});
 // console.log(withUID.name);
+// console.log(withUID2.name);
 
-// const addUID = <T>(obj: T) => {
+// const addUID2 = <T extends {name: string}>(obj: T) => {
 //     let uid: number = Math.floor(Math.random() * 100);
 //     return {...obj, uid};
 // }
-// const withUID = addUID({name: "Sarthak", isMajor: true});
-// //const anotherWithUID = addUID("sarthak");
-// console.log(withUID.name);
+// const withUID3 = addUID2({name: "Sarthak", isMajor: true});
+// // const withUID4 = addUID2({age:20});
+// // const withUID5 = addUID2({name:20});
 
-const addUID = <T extends object>(obj: T) => {
-    let uid: number = Math.floor(Math.random() * 100);
-    return {...obj, uid};
-}
-const withUID = addUID<{name: string, isMajor: boolean}>({name: "Sarthak", isMajor: true});
-const withUID2 = addUID({name: "Sarthak", isMajor: true});
-console.log(withUID.name);
-console.log(withUID2.name);
+// interface Resource<T> {
+//     uid: number;
+//     data: T;
+//     resourceName: string
+// }
 
-const addUID2 = <T extends {name: string}>(obj: T) => {
-    let uid: number = Math.floor(Math.random() * 100);
-    return {...obj, uid};
-}
-const withUID3 = addUID2({name: "Sarthak", isMajor: true});
-// const withUID4 = addUID2({age:20});
-// const withUID5 = addUID2({name:20});
+// let r1: Resource<string> = {
+//     uid: 1,
+//     data: "sarthak",
+//     resourceName: "person"
+// }
 
-interface Resource<T> {
-    uid: number;
-    data: T;
-    resourceName: string
-}
+// // let r2: Resource<string> = {
+// //     uid: 1,
+// //     data: {name: "Sarthak"},
+// //     resourceName: "person"
+// // }
 
-let r1: Resource<string> = {
-    uid: 1,
-    data: "sarthak",
-    resourceName: "person"
-}
-
-// let r2: Resource<string> = {
+// let r2: Resource<object> = {
 //     uid: 1,
 //     data: {name: "Sarthak"},
 //     resourceName: "person"
 // }
 
-let r2: Resource<object> = {
-    uid: 1,
-    data: {name: "Sarthak"},
-    resourceName: "person"
+
+//19
+//enums
+enum SampleEnum {BOOKS = 0, BOTTLE, PERSON="living"};
+console.log(SampleEnum.BOOKS)
+
+interface Resource<T> {
+    uid: number;
+    data: T;
+    resourceType: number
+}
+
+// let r2: Resource<object> = {
+//     uid: 1,
+//     data: {name: "Sarthak"},
+//     resourceType: 2
+// }
+// let r1: Resource<string> = {
+//     uid: 2,
+//     data: "Harry Potter",
+//     resourceType: 0
+// }
+enum ResourceTypes {BOOKS, BAG, PERSON}
+let r1: Resource<string> = {
+    uid: 2,
+    data: "Harry Potter",
+    resourceType: ResourceTypes.BOOKS
 }
